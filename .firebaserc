@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gman-d4dd9": {
+      "hosting": {
+        "bman": [
+          "gman-d4dd9"
+        ]
+      }
+    }
+  }
+}

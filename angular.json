@@ -31,7 +31,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles/base.scss",
+              "src/styles/common/spacing.scss",
+              "src/styles/common/sizing.scss",
+              "src/styles/common/constraints.scss"
             ],
             "scripts": []
           },
@@ -99,10 +103,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles/base.scss",
+              "src/styles/common/spacing.scss",
+              "src/styles/common/sizing.scss",
+              "src/styles/common/constraints.scss"
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
