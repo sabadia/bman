@@ -7,6 +7,7 @@
       "@shared/*": [ "src/app/shared/*" ],
       "@types/*": [ "src/app/types/*" ],
       "@entities/*": ["src/app/entities-and-models/*"],
+      "@pages/*": ["src/app/pages/*"],
       "@environments/*": ["src/environments/*"]
     },
     "outDir": "./dist/out-tsc",
@@ -21,6 +22,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",
+    "skipLibCheck": true,
     "module": "es2020",
     "lib": [
       "es2018",
