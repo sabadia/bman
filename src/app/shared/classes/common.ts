@@ -1,5 +1,6 @@
 import * as lodash from 'lodash';
-
+import {Subscription} from "rxjs";
+import {SubSink} from 'subsink'
 class Guid{
   constructor() {
   }
@@ -16,10 +17,21 @@ class Guid{
 
 }
 
+class SubsHandler extends SubSink{
+  get NewSubSink() {
+    return new SubsHandler();
+  }
+  set sublist(subscription: Subscription) {
+    this.sink = subscription;
+  }
+}
+
 export class Common{
   public static readonly Guid: Guid = new Guid();
   public static lodash = lodash;
+  public static readonly SubsHandler: SubsHandler = new SubsHandler()
 }
+
 // enum Type {
 //   Array = 'Array',
 //   string = 'string',

@@ -1,0 +1,7 @@
+.app-toolbar{
+  ::ng-deep{
+    .mat-toolbar {
+      background: white !important;
+    }
+  }
+}

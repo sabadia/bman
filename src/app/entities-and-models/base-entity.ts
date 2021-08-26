@@ -2,12 +2,12 @@ import {Common} from "@shared/classes/common";
 import {Injectable} from "@angular/core";
 
 export abstract class BaseEntity<Entity>{
-  id: string = Common.Guid.RandomGuid;
+  Id: string = Common.Guid.RandomGuid;
   _t?: string;
   CreatedBy?: string;
-  CreateDate: string = new Date().toISOString();
+  CreateDate?: string ;
   Language?: string = 'en-US';
-  LastUpdateDate: string =  new Date().toISOString();
+  LastUpdateDate?: string;
   LastUpdatedBy?: string;
   Tags?: string[];
   TenantId?: string;

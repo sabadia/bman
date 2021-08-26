@@ -1,0 +1,18 @@
+<div class="w-100-p app-toolbar">
+  <mat-toolbar fxLayoutGap="16px">
+    <button (click)="onNavigationOpenClick()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="lastRoute" (click)="onClickPrevious()">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <span >My App</span>
+    <span fxFlex="auto"></span>
+    <button mat-icon-button >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button >
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+</div>

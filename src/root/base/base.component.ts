@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NavigationConfiguration} from "../navigation/models/navigation";
 
 @Component({
   selector: 'base-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./base.component.scss']
 })
 export class BaseComponent {
-  title = 'bman';
+  title = 'BMan';
 }

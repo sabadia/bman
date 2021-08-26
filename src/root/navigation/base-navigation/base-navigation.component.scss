@@ -1,0 +1,21 @@
+.app-navigation{
+  ::ng-deep{
+    .mat-drawer-content {
+      background-color: #ffffff !important;
+    }
+    .mat-drawer{
+      //background-color: #f5f5f5 !important;
+      background-color: white;
+    }
+    .active .mat-icon{
+      color: red;
+    }
+    .mat-drawer-side {
+      border-right: solid 0px rgba(0,0,0,.09);
+    }
+
+  }
+}
+.root-content-max{
+  max-width: 1280px;
+}
