@@ -1,12 +1,7 @@
+import {DocumentReference} from "@angular/fire/compat/firestore";
 import {BaseEntity} from "@entities/base-entity";
-
-export type Navigation = {
-  Id: string,
-  Url: string,
-  Icon: string,
-  Name: string,
-  SubNavigationList?: Navigation
-}
+import {Navigation} from "@entities/navigation";
+import {Common} from "@shared/classes/common";
 
 export enum NavigationViewType {
   IconOnly = 'IconOnly',
@@ -21,6 +16,9 @@ export class NavigationConfiguration extends BaseEntity<NavigationConfiguration>
   constructor(data?: Partial<NavigationConfiguration>) {
     super(data);
   }
+  // get NestedConfigurationList() {
+  //   return []
+  // }
 
-  public static readonly BaseNavConfig = new NavigationConfiguration({ViewMode: NavigationViewType.Full, NavigationList: [] })
+  public static readonly BaseNavConfig = new NavigationConfiguration({ViewMode: NavigationViewType.Hide, NavigationList: [] })
 }

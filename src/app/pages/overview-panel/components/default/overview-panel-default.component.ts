@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "@shared/services/user.service";
 import {User} from "@entities/user";
+import {BaseNavigationService} from "../../../../../root/navigation/services/base-navigation.service";
 
 @Component({
   selector: 'app-default',
@@ -9,8 +10,10 @@ import {User} from "@entities/user";
 })
 export class OverviewPanelDefaultComponent implements OnInit {
 
-  constructor(private readonly userService: UserService) { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+
   }
 }

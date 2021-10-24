@@ -1,1 +1,27 @@
-<p>base-authorization-login works!</p>
+<mat-card class="mat-box-shaddow-card pt-40 pb-60 pl-46 pr-46 w-340">
+  <form [formGroup]="logInForm">
+    <div  fxLayout="column" fxLayoutAlign="start center">
+      <div class="primary-fg text-center title-1">Sign in</div>
+      <mat-form-field appearance="outline" class="w-100-p mt-52">
+        <mat-label>Email</mat-label>
+        <input formControlName="Email" matInput placeholder="Email" type="email" required>
+        <mat-error *ngIf="logInForm.get('Email')?.hasError('email')"> Email Address is not Valid </mat-error>
+        <mat-error *ngIf="logInForm.get('Email')?.hasError('required')">Required </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100-p mt-10">
+        <mat-label>Password</mat-label>
+        <input formControlName="Password" matInput placeholder="Password" type="password" required>
+        <mat-error *ngIf="logInForm.get('Password')?.hasError('required')">Required</mat-error>
+      </mat-form-field>
+      <div class="w-100-p mt-10" fxLayout="row" fxLayoutAlign="start center">
+        <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
+      </div>
+      <div class="mt-10 w-100-p" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+        <div class="sub-text-1">Don't Have an Account? Please Register <a [routerLink]="['/','authorization','registration']">Here</a></div>
+        <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>
+        <button [disabled]="isLoading" mat-raised-button type="submit" (click)="submitLogin()" color="primary">Sign In</button>
+      </div>
+    </div>
+  </form>
+</mat-card>

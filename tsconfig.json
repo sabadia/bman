@@ -8,7 +8,8 @@
       "@type/*": [ "src/app/types/*" ],
       "@entities/*": ["src/app/entities-and-models/*"],
       "@pages/*": ["src/app/pages/*"],
-      "@environments/*": ["src/environments/*"]
+      "@environments/*": ["src/environments/*"],
+      "@authorization/*": ["src/root/authorization/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

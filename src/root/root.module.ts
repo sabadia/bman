@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireAnalyticsModule} from "@angular/fire/compat/analytics";
+import {FlexLayoutModule} from "@angular/flex-layout";
 import { BrowserModule } from '@angular/platform-browser';
+import {FeatureCanActiveGuard} from "@authorization/guards/feature-can-active.guard";
+import {environment} from "@environments/environment";
 
 import { RoutingModule } from './routing.module';
 import { BaseComponent } from './base/base.component';
@@ -18,9 +23,15 @@ import { BaseNavigationToolbarComponent } from './navigation/base-navigation-too
     BrowserModule,
     RoutingModule,
     BrowserAnimationsModule,
-    SharedDataModule,
+    FlexLayoutModule.withConfig({
+      useColumnBasisZero: false,
+      printWithBreakpoints: ['xs', 'sm', 'md', 'lg', 'xl', 'lt-sm', 'lt-md', 'lt-lg', 'lt-xl', 'gt-xs', 'gt-sm', 'gt- md', 'gt-lg'],
+    }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAnalyticsModule,
+    SharedDataModule
   ],
-  providers: [],
+  providers: [FeatureCanActiveGuard],
   bootstrap: [BaseComponent]
 })
 export class RootModule { }

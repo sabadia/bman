@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {SharedDataModule} from "@shared/modules/shared-data.module";
 
 import { AuthorizationRoutingModule } from './authorization-routing.module';
 import { BaseAuthorizationDefaultComponent } from './components/base-authorization-default/base-authorization-default.component';
@@ -21,7 +22,8 @@ import { BaseAccountActivationComponent } from './components/base-account-activa
   ],
   imports: [
     CommonModule,
-    AuthorizationRoutingModule
+    AuthorizationRoutingModule,
+    SharedDataModule
   ]
 })
 export class AuthorizationModule { }

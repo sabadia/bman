@@ -1,7 +1,7 @@
 <mat-drawer-container class="w-100-p app-navigation" style="height: calc(100vh - 64px) !important;" autosize>
   <mat-drawer #drawer mode="side" opened [disableClose]="true">
-    <div fxLayout="column" fxLayoutAlign="start start" [hidden]="navConfig?.ViewMode === NavigationViewType.Hide">
-      <button fxLayout="row" fxLayoutAlign="start center" mat-button style="cursor: pointer" class="pl-24 pr-24 h-48 w-100-p" *ngFor="let navigation of navConfig?.NavigationList" routerLinkActive="active" [routerLink]="navigation.Url">
+    <div fxLayout="column" fxLayoutAlign="start start" *ngIf="navConfig?.ViewMode !== NavigationViewType.Hide">
+      <button fxLayout="row" fxLayoutAlign="start center" mat-button style="cursor: pointer" class="pl-24 pr-24 h-48 w-100-p" *ngFor="let navigation of navConfig?.NavigationList" routerLinkActive="active" [routerLink]="navigation.Path">
         <mat-icon [matTooltip]="(navigation?.Name || '' )" [hidden]="navConfig?.ViewMode === NavigationViewType.TextOnly">{{navigation.Icon}}</mat-icon> <span class="ml-16 mr-32" [hidden]="navConfig?.ViewMode === NavigationViewType.IconOnly">{{navigation.Name}}</span>
       </button>
     </div>

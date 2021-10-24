@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {NavigationConfiguration} from "../navigation/models/navigation";
+import {ActivatedRoute} from "@angular/router";
+import {NavigationConfiguration} from "../navigation/models/NavigationConfiguration";
+import {BaseNavigationService} from "../navigation/services/base-navigation.service";
 
 @Component({
   selector: 'base-root',

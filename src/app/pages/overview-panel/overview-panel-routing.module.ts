@@ -5,7 +5,7 @@ import {OverviewPanelDefaultComponent} from "@pages/overview-panel/components/de
 const routes: Routes = [
   {
     path: '',
-    component: OverviewPanelDefaultComponent
+    component: OverviewPanelDefaultComponent,
   },
 ];
 

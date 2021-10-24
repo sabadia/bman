@@ -1,1 +1,11 @@
-<p>base-account-activation works!</p>
+<mat-card class="mat-box-shaddow-card pt-40 pb-60 pl-46 pr-46 w-340">
+  <form>
+    <div  fxLayout="column" fxLayoutAlign="center center">
+      <div class="primary-fg text-center title-1">Account Verification</div>
+      <div class="mt-52 body-1 text-center">
+        To Complete Your Registration Please Click The Link Bellow And Sign in.
+      </div>
+      <button class="mt-28" mat-raised-button type="submit" (click)="redirectToLogInWithQueryParam()" color="primary">Sign In</button>
+    </div>
+  </form>
+</mat-card>

@@ -1,26 +1,19 @@
+import {Navigation} from "@entities/navigation";
+import {Role} from "@entities/role";
 import {Common} from "@shared/classes/common";
-import {Navigation} from "./models/navigation";
 
 const  NavigationList: Navigation[] = [
-  {
-    Id: Common.Guid.RandomGuid,
-    Url: '/panel',
-    Name: 'Posts',
-    Icon: 'home',
-  },
-  {
-    Id: Common.Guid.RandomGuid,
-    Url: '/authorization',
-    Name: 'Categories',
-    Icon: 'category',
-
-  },
-  {
-    Id: Common.Guid.RandomGuid,
-    Url: '/about',
-    Name: 'About',
-    Icon: 'description',
-  },
 
 ];
+
+
+
+const RoleBasedNavigation = {
+  SuperAdmin: {
+    Key: '',
+    RoleHierarchyBaseValue: 0,
+    AuthFailedUrl: 'authorization',
+    NavigationList: [Navigation]
+  }
+}
 export {NavigationList}

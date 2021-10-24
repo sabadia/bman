@@ -1,1 +1,74 @@
-<p>base-authorization-register works!</p>
+<mat-card class="mat-box-shaddow-card pt-40 pb-60 pl-46 pr-46 w-420">
+  <form [formGroup]="personForm">
+    <div  fxLayout="column" fxLayoutAlign="start center">
+      <div class="primary-fg text-center title-1">Registration</div>
+      <div class="mt-52" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="16px">
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>First Name</mat-label>
+          <input formControlName="FirstName" matInput placeholder="First Name" type="text" required>
+          <mat-error *ngIf="personForm.get('FirstName')?.invalid">Required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Last Name</mat-label>
+          <input formControlName="LastName" matInput placeholder="Last Name" type="text" required>
+          <mat-error *ngIf="personForm.get('LastName')?.invalid">Required</mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start start" class="w-100-p  mt-10">
+        <div class="body-1">Gender*:</div>
+        <mat-radio-group formControlName="Gender" class="mt-10" required>
+          <mat-radio-button color="primary" class="mr-16" *ngFor="let gender of Object.keys(Gender)" [value]="gender"> <span class="ml-8">{{gender}}</span> </mat-radio-button>
+          <mat-error class="mat-error-message" *ngIf="personForm.get('Gender')?.touched && personForm.get('Gender')?.invalid">Required</mat-error>
+        </mat-radio-group>
+      </div>
+      <mat-form-field appearance="outline" class="w-100-p mt-26">
+        <mat-label>Company Name</mat-label>
+        <input formControlName="CompanyName" autocomplete="off" matInput placeholder="Company Name" type="text" required>
+        <mat-error *ngIf="personForm.get('CompanyName')?.invalid">Required</mat-error>
+      </mat-form-field>
+      <div class="mt-10"  fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="16px">
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Email</mat-label>
+          <input formControlName="Email" autocomplete="off" matInput placeholder="Email" type="email" required>
+          <mat-error *ngIf="personForm.get('Email')?.hasError('email')"> Email Address is not Valid </mat-error>
+          <mat-error *ngIf="personForm.get('Email')?.hasError('required')">Required </mat-error>
+          <mat-error *ngIf="personForm.get('Email')?.hasError('EmailExist')">Email Already Exist</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Mobile Number</mat-label>
+          <input formControlName="MobileNumber" autocomplete="off" matInput placeholder="Mobile Number" type="tel" required>
+          <mat-error *ngIf="personForm.get('MobileNumber')?.hasError('required')">Required</mat-error>
+          <mat-error *ngIf="personForm.get('MobileNumber')?.hasError('pattern')">
+            Invalid Mobile Number
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="mt-10"  fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="16px">
+        <mat-form-field appearance="outline" class="w-100-p">
+          <mat-label>Password</mat-label>
+          <input formControlName="Password" matInput placeholder="Password" type="password" required>
+          <mat-error *ngIf="personForm.get('Password')?.hasError('required')">Required</mat-error>
+          <mat-error *ngIf="personForm.get('Password')?.hasError('pattern')">
+            Min (len: 8, UpperCase: 1, LowerCase: 1, Number: 1, Special character: 1)
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-100-p">
+          <mat-label>Confirm Password</mat-label>
+          <input formControlName="ConfirmPassword" matInput placeholder="Confirm Password" type="password" required>
+          <mat-error *ngIf="personForm.get('ConfirmPassword')?.hasError('required')">Required</mat-error>
+          <mat-error *ngIf="personForm.get('ConfirmPassword')?.hasError('passwordNotMatched')">Password Not Matched</mat-error>
+        </mat-form-field>
+      </div>
+      <mat-form-field appearance="outline" class="w-100-p mt-10">
+        <mat-label>Address</mat-label>
+        <input formControlName="Address" autocomplete="off" matInput placeholder="Street, City, Area, Post Code, Country" type="text" required>
+        <mat-error *ngIf="personForm.get('Address')?.invalid">Required</mat-error>
+      </mat-form-field>
+      <div class="mt-10 w-100-p" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px">
+        <div class="sub-text-1">Already Have an Account? Please Sign In <a [routerLink]="['/','authorization','login']">Here</a></div>
+        <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>
+        <button [disabled]="isLoading" mat-raised-button type="button" (click)="submitRegistration()" color="primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</mat-card>

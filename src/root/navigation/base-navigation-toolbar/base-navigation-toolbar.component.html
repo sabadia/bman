@@ -1,18 +1,19 @@
 <div class="w-100-p app-toolbar">
   <mat-toolbar fxLayoutGap="16px">
-    <button (click)="onNavigationOpenClick()" mat-icon-button>
+    <button *ngIf="navConfig?.ViewMode !== NavigationViewType.Hide" (click)="onNavigationOpenClick()" mat-icon-button>
       <mat-icon>menu</mat-icon>
     </button>
     <button mat-icon-button *ngIf="lastRoute" (click)="onClickPrevious()">
       <mat-icon>arrow_back_ios</mat-icon>
     </button>
-    <span >My App</span>
+    <span >B.Man</span>
     <span fxFlex="auto"></span>
-    <button mat-icon-button >
-      <mat-icon>favorite</mat-icon>
+    <button *ngIf="person$ | async as person" mat-button [matMenuTriggerFor]="beforeMenu">{{person?.DisplayName}}
+    <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
     </button>
-    <button mat-icon-button >
-      <mat-icon>share</mat-icon>
-    </button>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item>Profile</button>
+      <button (click)="logOut()" mat-menu-item>Log Out</button>
+    </mat-menu>
   </mat-toolbar>
 </div>
